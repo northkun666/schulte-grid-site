@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#edf7f3" />
+    <title>舒尔特方格练习</title>
+    <link rel="stylesheet" href="./styles.css?v=20260707b" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="panel hero-panel" aria-labelledby="app-title">
+        <div class="title-block">
+          <p class="eyebrow">Schulte Grid</p>
+          <h1 id="app-title">舒尔特方格练习</h1>
+          <p class="subtitle">按 1 到最大数字的顺序点击，训练注意力、视觉搜索和反应稳定性。</p>
+        </div>
+
+        <div class="stats-strip" aria-label="本次练习状态">
+          <div>
+            <span class="stat-label">用时</span>
+            <strong id="timer">0.00s</strong>
+          </div>
+          <div>
+            <span class="stat-label">目标</span>
+            <strong id="next-target">1</strong>
+          </div>
+          <div>
+            <span class="stat-label">失误</span>
+            <strong id="mistakes">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <aside class="panel control-panel" aria-label="练习设置">
+          <div class="control-group">
+            <label class="control-label" for="size-select">方格大小</label>
+            <div class="segmented" role="group" aria-label="选择方格大小">
+              <button class="segment active" type="button" data-size="3">3 × 3</button>
+              <button class="segment" type="button" data-size="4">4 × 4</button>
+              <button class="segment" type="button" data-size="5">5 × 5</button>
+            </div>
+            <select id="size-select" class="sr-only" aria-label="方格大小">
+              <option value="3">3 × 3</option>
+              <option value="4">4 × 4</option>
+              <option value="5">5 × 5</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="theme-select">界面风格</label>
+            <select id="theme-select" class="select">
+              <option value="mint">薄荷清晨</option>
+              <option value="sky">湖蓝晴空</option>
+              <option value="peach">蜜桃纸感</option>
+            </select>
+          </div>
+
+          <div class="action-row">
+            <button id="restart-btn" class="primary-btn" type="button">重新开始</button>
+            <button id="shuffle-btn" class="ghost-btn" type="button">换一组</button>
+          </div>
+
+          <div class="result-card" aria-live="polite">
+            <span class="stat-label">完成评价</span>
+            <strong id="rating-title">准备开始</strong>
+            <p id="rating-text">点击数字 1 后自动计时。完成后会根据用时和失误给出评价。</p>
+          </div>
+        </aside>
+
+        <section class="board-panel" aria-label="舒尔特方格">
+          <div id="board" class="board" role="grid" aria-label="点击数字从 1 开始"></div>
+        </section>
+
+        <aside class="panel checkin-panel" aria-label="每日打卡">
+          <div class="checkin-head">
+            <div>
+              <span class="stat-label">每日打卡</span>
+              <strong id="today-status">今日未完成</strong>
+            </div>
+            <button id="checkin-btn" class="check-btn" type="button" disabled>打卡</button>
+          </div>
+
+          <div class="checkin-grid">
+            <div>
+              <span class="stat-label">连续</span>
+              <strong id="streak-count">0 天</strong>
+            </div>
+            <div>
+              <span class="stat-label">最佳</span>
+              <strong id="best-time">--</strong>
+            </div>
+          </div>
+
+          <div>
+            <div class="history-title">
+              <span class="stat-label">最近记录</span>
+              <button id="clear-data-btn" class="text-btn" type="button">清空</button>
+            </div>
+            <ol id="history-list" class="history-list"></ol>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="./app.js?v=20260707b"></script>
+  </body>
+</html>
