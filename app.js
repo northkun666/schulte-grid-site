@@ -137,7 +137,6 @@ function updateStatus() {
   document.querySelectorAll(".tile").forEach((tile) => {
     const value = Number(tile.dataset.value);
     tile.classList.toggle("done", value < state.next);
-    tile.classList.toggle("next", value === state.next && !state.finished);
     tile.disabled = state.finished || value < state.next;
   });
 }

@@ -335,11 +335,6 @@ h1 {
   box-shadow: none;
 }
 
-.tile.next {
-  background: var(--tile-next);
-  border-color: var(--accent-border);
-}
-
 .tile.error {
   animation: shake 260ms ease;
   border-color: var(--danger-border);
